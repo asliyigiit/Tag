@@ -18,10 +18,8 @@ class TagsSearch extends Tag
     public function rules()
     {
         return [
-            [['id', 'tag_name', 'tag_cat', 'content'], 'required'],
             [['id'], 'integer'],
-            [['tag_name', 'tag_cat', 'content'], 'string'],
-            [['id'], 'unique'],
+            [['title','tag_name', 'tag_cat', 'content'], 'string'],
         ];
     }
 
@@ -61,9 +59,11 @@ class TagsSearch extends Tag
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'id' => $this->id,
+            
+            'id' => $this->id,      
+            'title'=>$this->title,   
             'tag_name' => $this->tag_name,
-            'tag_cat' => $this->tag_cat,
+            'tag_cat' => $this->tag_cat, 
             'content' => $this->content,
         ]);
 

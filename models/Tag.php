@@ -11,6 +11,7 @@ use Yii;
  * @property string $tag_name
  * @property string $tag_cat
  * @property string $content
+ * @property string $title
  */
 class Tag extends \yii\db\ActiveRecord
 {
@@ -28,9 +29,10 @@ class Tag extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id', 'tag_name', 'tag_cat', 'content'], 'required'],
+            [['id', 'tag_name', 'tag_cat', 'content', 'title'], 'required'],
             [['id'], 'integer'],
             [['tag_name', 'tag_cat', 'content'], 'string'],
+            [['title'], 'string', 'max' => 100],
             [['id'], 'unique'],
         ];
     }
@@ -45,6 +47,7 @@ class Tag extends \yii\db\ActiveRecord
             'tag_name' => 'Tag Name',
             'tag_cat' => 'Tag Cat',
             'content' => 'Content',
+            'title' => 'Title',
         ];
     }
 }

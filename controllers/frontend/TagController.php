@@ -38,7 +38,7 @@ class TagController extends Controller
         $searchModel = new TagsSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
         $tags = tag::find()->asArray()->all();
-
+        
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
@@ -121,6 +121,14 @@ class TagController extends Controller
     protected function findModel($id)
     {
         if (($model = Tag::findOne($id)) !== null) {
+            return $model;
+        }
+
+        throw new NotFoundHttpException('The requested page does not exist.');
+    }
+    protected function findTag($tag_name)
+    {
+        if (($model = Tag::findAll($tag_name)) !== null) {
             return $model;
         }
 

@@ -7,29 +7,33 @@ use yii\grid\GridView;
 /* @var $searchModel kouosl\tag\models\TagsSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Tags';
+$this->title = 'POSTS';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="tag-index">
+<div class="admin-index" style="width:500px;">
 
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
-    <p>
-        <?= Html::a('Create Tag', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
+        
         'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
+            ['class' => 'yii\grid\ActionColumn'],
             'id',
+            'title',
             'tag_name',
             'tag_cat',
             'content',
-            ['class' => 'yii\grid\ActionColumn'],
+           
         ],
     ]); ?>
+    
+    <p>
+        <?= Html::a('Create Post', ['create'], ['class' => 'btn btn-lg btn-primary']) ?>
+    </p>
+
+
 </div>
