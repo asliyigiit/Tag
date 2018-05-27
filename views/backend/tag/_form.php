@@ -20,7 +20,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'tag_cat')->textInput() ?>
 
-    <?= $form->field($model, 'content')->textArea() ?>
+    <?= $form->field($model, 'content')->textArea(['rows'=>"8"]) ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

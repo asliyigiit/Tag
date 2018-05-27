@@ -24,11 +24,11 @@ $this->params['breadcrumbs'][] = $this->title;
        <?php foreach ($tags as $tag)
      {?> 
         <div class="panel panel-default">
-          <div class="panel-heading">
+            <div class="panel-heading">
 
                 <h3 class="panel-title"><?php echo $tag['title'] ; ?></h3>
                 <h5 style="text-align:right;"><?php echo $tag['tag_name'] ; ?> </h5>
-              </div>
+           </div>
               <div class="panel-body">
                   <?php echo $tag['content'] ; ?>
 
@@ -36,49 +36,48 @@ $this->params['breadcrumbs'][] = $this->title;
                       <br/>
 
                       </div><?php } ?>
-<?php ActiveForm::end(); ?>
+                     <?php ActiveForm::end(); ?>
 
-</div>
+                        </div>
 
-<div class="col-md-3 fixed">
+            <div class="col-md-3 fixed">
 
-<?php $form = ActiveForm::begin([
-    'action' => ['index'],
-    'method' => 'get',
-]); ?>
-<h3>Search a Tag!</h3>
-<?= $form->field($searchModel, 'tag_name') ?>
+                <?php $form = ActiveForm::begin([
+                  'action' => ['index'],
+                  'method' => 'get',
+                    ]); ?>
+                 <h3>Search a Tag!</h3>
+                <?= $form->field($searchModel, 'tag_name') ?>
 
-<div class="form-group">
-<?= Html::submitButton('GO!', ['class' => 'btn btn-primary']) ?>
-<?= Html::resetButton('Reset', ['class' => 'btn btn-default']) ?>
-</div>
+             <div class="form-group">
+                <?= Html::submitButton('GO!', ['class' => 'btn btn-primary']) ?>
+                <?= Html::resetButton('Reset', ['class' => 'btn btn-default']) ?>
+            </div>   
 
-<?php ActiveForm::end(); ?>
+                <?php ActiveForm::end(); ?>
 
-<?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'columns' => [
-           'tag_name',
-           [  
-            'class' => 'yii\grid\ActionColumn',
-            'template' => '{view} ',
-        ],
-        ],
-    ]); ?>
+                <?= GridView::widget([
+                        'dataProvider' => $dataProvider,
+                        'columns' => [
+                        'tag_name',
+                        [  
+                            'class' => 'yii\grid\ActionColumn',
+                            'template' => '{view} ',
+                        ],
+                        ],
+                    ]); ?>
 
 
-<?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'columns' => [
-           'tag_cat',
-           [  
-            'class' => 'yii\grid\ActionColumn',
-            'template' => '{view} ',
-        ],
-        ],
-    ]); ?>
+                <?= GridView::widget([
+                        'dataProvider' => $dataProvider,
+                        'columns' => [
+                        'tag_cat',
+                        [  
+                            'class' => 'yii\grid\ActionColumn',
+                            'template' => '{view} ',
+                        ],
+                        ],
+                    ]); ?>
 
-</div>
-
+    </div>
 </div>
