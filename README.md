@@ -18,4 +18,19 @@ require kısmına ise:
   "projeAdi/tag":"dev-master"
 }
 ```
-eklendikten sonra modül kullanıma hazır olacaktır.
+portal/backend/config/main.php dosyasinda
+```bash
+    'modules' => [
+    ....
+'tag' => [
+
+    'class' => 'kouosl\tag\Module',
+
+],
+```
+Komut satırında portal dizinine girerek composer update komutu çalıştırılmalıdır.Böylece modül kurulmuş olacaktır.
+Daha sonra migration dosyalarını kullanabilmek için;
+```bash
+php yii migrate --migrationPath=@vendor/kouosl/tag/migrations --interactive=0 
+```
+komutu çalıştırılmalıdır.
